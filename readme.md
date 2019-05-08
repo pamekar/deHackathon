@@ -24,7 +24,7 @@ DB_PASSWORD=secret
 
 You will also want to update your website URL inside of the `APP_URL` variable inside the .env file:
 
-```
+```dotenv
 APP_URL=http://localhost:8000
 ```
 
@@ -36,13 +36,14 @@ The dummy data will include 1 admin account (if no users already exists), 1 demo
 To install Voyager without dummy simply run
 
 ```bash
-php artisan voyager:install
+$ php artisan config:cache
+$ php artisan voyager:install
 ```
 
 If you prefer installing it with dummy run
 
 ```bash
-php artisan voyager:install --with-dummy
+$ php artisan voyager:install --with-dummy
 ```
 
 > Troubleshooting: **Specified key was too long error**. If you see this error message you have an outdated version of MySQL, use the following solution: https://laravel-news.com/laravel-5-4-key-too-long-error
@@ -64,13 +65,13 @@ If you did not go with the dummy user, you may wish to assign admin privileges t
 This can easily be done by running this command:
 
 ```bash
-php artisan voyager:admin your@email.com
+$ php artisan voyager:admin your@email.com
 ```
 
 If you did not install the dummy data and you wish to create a new admin user you can pass the `--create` flag, like so:
 
 ```bash
-php artisan voyager:admin your@email.com --create
+$ php artisan voyager:admin your@email.com --create
 ```
 
 And you will be prompted for the user's name and password.
